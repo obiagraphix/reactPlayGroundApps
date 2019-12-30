@@ -1,23 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import AddColorForm from "./components/AddColorForm";
+import StarRating from "./components/StarRating";
+import "./App.css";
 
 function App() {
+  /* const logColor = (title, color) => {
+    console.log(`New Color: ${title} | ${color}`);
+  }; */
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <StarRating />
+        <br></br>
+        <hr></hr>
+        <AddColorForm
+          onNewColor={(title, color) => {
+            console.log(`TODO: add new ${title} and ${color} to the list`);
+            console.log(`TODO: render UI with new Color`);
+          }}
+        />
       </header>
     </div>
   );
