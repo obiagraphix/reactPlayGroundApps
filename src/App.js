@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { v4 } from "uuid";
 import AddColorForm from "./components/AddColorForm";
 import ColorList from "./components/ColorList";
+import MemberList from "./components/MemberList";
 import "./App.css";
 
 class App extends Component {
@@ -45,6 +46,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
+          <MemberList />
+          <br></br>
+          <hr></hr>
           <AddColorForm onNewColor={addColor} />
           <br></br>
           <hr></hr>
