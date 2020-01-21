@@ -1,45 +1,43 @@
-import React from "react";
+import React, { Component } from "react";
 import StarRating from "./StarRating";
-import { addColor, removeColor, rateColor } from "../Redux/Actions";
+import TimeAgo from "../components/TimeAgo";
 import { MdDelete } from "react-icons/md";
 import PropTypes from "prop-types";
 
-const Color = ({ store }, props) => {
-  const { id, title, color, rating, timestamp } = props;
+class Color extends Component {
+  render() {
+    const { title, color, rating, timestamp, onRemove, onRate } = this.props;
+    return (
+      <section className="color" style={this.style}>
+        <h1 ref="title">{title}</h1>
 
-  return (
-    <section className="color" style={{ background: color, color: "red" }}>
-      <h1 ref={title}>{title}</h1>
-      <div className="color" style={{ background: color }}></div>
-      <br />
-      <button onClick={() => store.dispatch(removeColor(id))}>
-        <MdDelete size="2em" />
-      </button>{" "}
-      <br />
-      <div>
-        <br />
-        <br />
-        <StarRating
-          starsSelected={rating}
-          onRate={(rating) => store.dispatch(rateColor(id, rating))}
-        />
-      </div>
-    </section>
-  );
-};
+        <div className="color cl1" style={{ backgroundColor: color }}></div>
+        <br></br>
+        <TimeAgo timestamp={timestamp} />
+        <div>
+          <StarRating starsSelected={rating} onRate={onRate} />
+        </div>
+        <br></br>
+        <button onClick={onRemove}>
+          <MdDelete size="1em" className="md-delete" />
+        </button>
+      </section>
+    );
+  }
+}
 
-Color.contextTypes = {
-  store: PropTypes.object
-};
 Color.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
   rating: PropTypes.number,
-  color: PropTypes.string,
+  onRemove: PropTypes.func,
   onRate: PropTypes.func
 };
 
 Color.defaultProps = {
-  rating: 0
+  rating: 0,
+  onRemove: (f) => f,
+  onRate: (f) => f
 };
 
 export default Color;

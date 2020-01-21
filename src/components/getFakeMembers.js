@@ -1,5 +1,3 @@
-import React from "react";
-
 const getFakeMembers = (count) =>
   new Promise((resolves, rejects) => {
     const api = `https://api.randomuser.me/?nat=US&results=${count}`;

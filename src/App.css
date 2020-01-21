@@ -93,11 +93,81 @@ body {
 .member h1 {
   font-size: 20px;
 }
-.color-list,
-.color {
+.color-list .color {
   color: black;
   background-color: white;
   padding: 21px;
   text-align: center;
   display: inline-block;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.color-list {
+  background: #fff;
+  padding: 10px;
+}
+.menu a {
+  display: inline-block;
+  margin: 2px 1px;
+  border: 1px solid #6b6b6b;
+  background: #0062cc00;
+  padding: 8px 14px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: white;
+}
+
+input[type="text"] {
+  display: inline;
+  width: 70%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+input[type="color"] {
+  height: 48px;
+  position: relative;
+  vertical-align: middle;
+  top: -2px;
+}
+.add-color button {
+  padding: 10px 14px;
+  position: relative;
+  top: 0px;
+  background: #28a745;
+  border: solid #28a745 2px;
+  color: #fff;
+}
+.star-rating p {
+  display: inline-block;
+  margin-top: 20px;
+}
+.star-rating {
+  margin-top: 50px;
+}
+
+.color button {
+  font-size: 20px;
+  background: #c6c6c600;
+  border: #8a8a8a solid 1px;
+  padding: 5px 11px;
+  color: #000;
+  border-radius: 70%;
+}
+
+svg.md-delete {
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+}
+.color h1 {
+  text-transform: capitalize;
+  color: #121212;
+  font-size: 26px;
+}
+.cl1 {
+  border-radius: 0%;
+  padding: 8px 77px;
+  border: 1px solid #8f8f8f;
+  margin: 0px auto;
 }

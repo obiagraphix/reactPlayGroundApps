@@ -1,4 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import { colors, sort } from "../Reducers";
 import stateData from "../InitialState";
 

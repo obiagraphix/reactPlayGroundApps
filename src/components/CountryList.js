@@ -12,13 +12,13 @@ class CountryList extends Component {
   componentDidMount() {
     this.setState({ loading: true });
     fetch("https://restcountries.eu/rest/v2/region/africa")
-      .then(response => response.json())
-      .then(json => json.map(country => country))
-      .then(countryNames => this.setState({ countryNames, loading: false }));
+      .then((response) => response.json())
+      .then((json) => json.map((country) => country))
+      .then((countryNames) => this.setState({ countryNames, loading: false }));
   }
 
   render() {
-    const { countryNames, loading } = this.state;
+    const { countryNames } = this.state;
     return (
       <Table striped bordered hover variant="dark">
         <thead>
@@ -39,10 +39,15 @@ class CountryList extends Component {
                 <span key={i.capital}>{x.capital}</span>
               </td>
               <td>
-                <img key={i.flag} src={x.flag} style={{ width: "60px" }} />
+                <img
+                  alt="flag"
+                  key={i.flag}
+                  src={x.flag}
+                  style={{ width: "60px" }}
+                />
               </td>
               <td>
-                <span>{x.nativeName}</span>
+                <span key={i.nativeName}>{x.nativeName}</span>
               </td>
             </tr>
           </tbody>

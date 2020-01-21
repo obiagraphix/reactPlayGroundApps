@@ -1,12 +1,10 @@
 import React from "react";
-import AddColorForm from "./components/AddColorForm";
-import ColorList from "./components/ColorList";
 import MemberList from "./components/MemberList";
 import HiddenMessages from "./components/HiddenMessages";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import CountryList from "./components/CountryList";
-import SortMenu from "./components/Menu/SortMenu";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Menu, NewColor, Colors } from "./components/Containers";
 import "./App.css";
 
 const App = ({ store }) => {
@@ -42,9 +40,9 @@ const App = ({ store }) => {
           </Route>
 
           <Route path="/color">
-            <SortMenu store={store} />
-            <AddColorForm store={store} />
-            <ColorList store={store} />
+            <Menu />
+            <NewColor />
+            <Colors />
           </Route>
         </Switch>
       </div>

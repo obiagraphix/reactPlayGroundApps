@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { sortColors } from "../../Redux/Actions";
-//import "../Menu/Menu.scss";
 
 const options = {
   date: "SORTED_BY_DATE",
@@ -9,17 +7,17 @@ const options = {
   rating: "SORTED_BY_RATING"
 };
 
-const SortMenu = ({ store }) => (
+const SortMenu = ({ sort = "SORTED_BY_DATE", onSelect = (f) => f }) => (
   <nav className="menu">
     <h1>Sort Colors</h1>
     {Object.keys(options).map((item, i) => (
       <a
         key={i}
-        href="#"
-        className={store.getState().sort === options[item] ? "selected" : null}
+        href="#/"
+        className={sort === options[item] ? "selected" : null}
         onClick={(e) => {
           e.preventDefault();
-          store.dispatch(sortColors(options[item]));
+          onSelect(options[item]);
         }}
       >
         {item}
@@ -29,7 +27,8 @@ const SortMenu = ({ store }) => (
 );
 
 SortMenu.propTypes = {
-  store: PropTypes.object
+  sort: PropTypes.string,
+  onSelect: PropTypes.func
 };
 
 export default SortMenu;
